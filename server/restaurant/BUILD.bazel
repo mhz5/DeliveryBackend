@@ -1,0 +1,19 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library")
+
+go_library(
+    name = "restaurant",
+    srcs = [
+        "grpc.go",
+        "restaurant.go",
+    ],
+    importpath = "fda/server/restaurant",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//proto/common",
+        "//proto/restaurant",
+        "//server/gcloud",
+        "@com_github_pkg_errors//:errors",
+        "@com_google_cloud_go_firestore//:firestore",
+        "@go_googleapis//google/type:latlng_go_proto",
+    ],
+)

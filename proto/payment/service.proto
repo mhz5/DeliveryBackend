@@ -1,0 +1,23 @@
+syntax = "proto3";
+package payment;
+
+option java_multiple_files = true;
+option java_package = "payment";
+option java_outer_classname = "PaymentServiceProto";
+option go_package= "fda/proto/payment";
+
+service PaymentService {
+    rpc CreatePayment (CreatePaymentRequest) returns (CreatePaymentResponse) {}
+}
+
+message CreatePaymentRequest {
+    string nonce = 1;
+    string buyerVerificationToken = 2;
+    int32 amount_cents = 3; // eg. 123 == 1 dollar, 23 cents.
+    string currency = 4; // eg. "USD"
+}
+
+message CreatePaymentResponse {
+    bool success = 1;
+}
+

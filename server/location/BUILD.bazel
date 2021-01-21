@@ -1,0 +1,17 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library")
+
+go_library(
+    name = "location",
+    srcs = ["grpc.go"],
+    importpath = "fda/server/location",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//proto/location",
+        "//server/gcloud",
+        "@com_github_pkg_errors//:errors",
+        "@com_github_uber_h3_go_v3//:h3-go",
+        "@com_google_cloud_go_firestore//:firestore",
+        "@com_google_cloud_go_pubsub//:pubsub",
+        "@com_google_firebase_go//auth",
+    ],
+)

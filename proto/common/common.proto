@@ -1,0 +1,12 @@
+syntax = "proto3";
+package common;
+
+option java_multiple_files = true;
+option java_package = "common";
+option java_outer_classname = "CommonProto";
+option go_package= "fda/proto/common";
+
+message Point {
+    double lat = 1;
+    double long = 2;
+}

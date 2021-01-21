@@ -1,0 +1,12 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library")
+
+go_library(
+    name = "payment",
+    srcs = ["grpc.go"],
+    importpath = "fda/server/payment",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//proto/payment",
+        "@com_github_google_uuid//:uuid",
+    ],
+)

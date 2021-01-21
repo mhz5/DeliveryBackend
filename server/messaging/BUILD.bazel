@@ -1,0 +1,15 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library", "go_test")
+
+go_library(
+    name = "messaging",
+    srcs = ["grpc.go"],
+    importpath = "fda/server/messaging",
+    visibility = ["//visibility:public"],
+    deps = ["@org_golang_google_api//fcm/v1:fcm"],
+)
+
+go_test(
+    name = "messaging_test",
+    srcs = ["grpc_test.go"],
+    embed = [":messaging"],
+)

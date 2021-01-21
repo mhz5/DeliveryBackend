@@ -1,0 +1,14 @@
+.idea
+TODO
+out
+venv/
+
+
+# Bazel symbolic links
+bazel*
+
+# Secrets
+service-account-key*
+
+# Individuals
+gmike/

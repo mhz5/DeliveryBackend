@@ -1,0 +1,15 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library")
+
+go_library(
+    name = "gcloud",
+    srcs = ["gcloud.go"],
+    importpath = "fda/server/gcloud",
+    visibility = ["//visibility:public"],
+    deps = [
+        "@com_github_pkg_errors//:errors",
+        "@com_google_cloud_go_firestore//:firestore",
+        "@com_google_cloud_go_pubsub//:pubsub",
+        "@com_google_firebase_go//:go",
+        "@com_google_firebase_go//auth",
+    ],
+)

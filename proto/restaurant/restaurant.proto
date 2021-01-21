@@ -1,0 +1,26 @@
+syntax = "proto3";
+package restaurant;
+
+import "proto/common/common.proto";
+
+option java_multiple_files = true;
+option java_package = "restaurant";
+option java_outer_classname = "RestaurantProto";
+option go_package= "fda/proto/restaurant";
+
+message Restaurant {
+    //    TODO: How should this id value interact with Datastore id?
+    int64 id = 1;
+    string name = 2;
+    common.Point location = 3;
+    Menu menu = 4;
+}
+
+message Menu {
+    repeated MenuItem items = 1;
+}
+
+message MenuItem {
+    string name = 1;
+    float price = 2;
+}

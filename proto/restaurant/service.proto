@@ -1,0 +1,23 @@
+syntax = "proto3";
+package restaurant;
+
+import "proto/restaurant/restaurant.proto";
+
+option java_multiple_files = true;
+option java_package = "restaurant";
+option java_outer_classname = "RestaurantServiceProto";
+option go_package= "fda/proto/restaurant";
+
+service RestaurantService {
+    rpc GetRestaurants (GetRestaurantsRequest) returns (GetRestaurantsResponse) {}
+}
+
+message GetRestaurantsRequest {
+    repeated int64 id = 1;
+}
+
+message GetRestaurantsResponse {
+    repeated Restaurant restaurants = 1;
+}
+
+

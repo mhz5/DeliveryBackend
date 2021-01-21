@@ -1,0 +1,29 @@
+load("@rules_proto//proto:defs.bzl", "proto_library")
+load("@io_bazel_rules_go//go:def.bzl", "go_library")
+load("@io_bazel_rules_go//proto:def.bzl", "go_proto_library")
+
+go_proto_library(
+    name = "restaurant_go_proto",
+    compilers = ["@io_bazel_rules_go//proto:go_grpc"],
+    importpath = "fda/proto/restaurant",
+    proto = ":restaurant_proto",
+    visibility = ["//visibility:public"],
+    deps = ["//proto/common"],
+)
+
+go_library(
+    name = "restaurant",
+    embed = [":restaurant_go_proto"],
+    importpath = "fda/proto/restaurant",
+    visibility = ["//visibility:public"],
+)
+
+proto_library(
+    name = "restaurant_proto",
+    srcs = [
+        "restaurant.proto",
+        "service.proto",
+    ],
+    visibility = ["//visibility:public"],
+    deps = ["//proto/common:common_proto"],
+)

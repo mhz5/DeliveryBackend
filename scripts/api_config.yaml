@@ -1,0 +1,14 @@
+# The configuration schema is defined by service.proto file
+# https://github.com/googleapis/googleapis/blob/master/google/api/service.proto
+type: google.api.Service
+config_version: 3
+
+# Name of the service configuration.
+name: fda.endpoints.food-prod.cloud.goog
+
+# API title to appear in the user interface (Google Cloud Console).
+title: Food Delivery App gRPC
+apis:
+- name: restaurant.RestaurantService
+- name: payment.PaymentService
+- name: location.LocationService

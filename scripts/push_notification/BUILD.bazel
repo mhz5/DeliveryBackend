@@ -1,0 +1,18 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_binary", "go_library")
+
+go_library(
+    name = "push_notification_lib",
+    srcs = ["main.go"],
+    importpath = "fda/scripts/push_notification",
+    visibility = ["//visibility:private"],
+    deps = [
+        "@com_google_firebase_go//:go",
+        "@com_google_firebase_go//messaging",
+    ],
+)
+
+go_binary(
+    name = "push_notification",
+    embed = [":push_notification_lib"],
+    visibility = ["//visibility:public"],
+)
